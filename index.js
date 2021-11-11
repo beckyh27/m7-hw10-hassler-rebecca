@@ -7,6 +7,13 @@ var textarea = document.querySelector('textarea')
 // Retrieve name and note content from cookies and localstorage
 // Then apply them to elements on the page
 // YOUR CODE HERE
+var cookiesArr = document.cookie.split('; ')
+var usernameCookie = cookiesArr.find(function(cookieStr) {
+  return cookieStr.startsWith('username')
+})
+if (usernameCookie) {
+  nameSpan.textContent = usernameCookie.split('=')[1]
+}
 
 formEl.onsubmit = function(e) {
   // prevents form submission
@@ -15,10 +22,8 @@ formEl.onsubmit = function(e) {
   // save textarea's content to localstorage
   // YOUR CODE HERE
 
-  nameSpan.onblur = function() {
-    nameContent = nameSpan.textContent
-    document.cookie = 'username=' + nameContent + ";"
-  }
+  nameContent = nameSpan.textContent
+  document.cookie = 'username=' + nameContent + ";"
 
   noteContent = textarea.value
   localStorage.setItem('notes', noteContent)
