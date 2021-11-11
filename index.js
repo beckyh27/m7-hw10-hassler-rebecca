@@ -20,7 +20,8 @@ formEl.onsubmit = function(e) {
     document.cookie = 'username=' + nameContent + ";"
   }
 
-
+  noteContent = textarea.value
+  localStorage.setItem('notes', noteContent)
 
   // triggers thumbs up animation
   this.elements.save.classList.add('emoji')
