@@ -15,6 +15,13 @@ formEl.onsubmit = function(e) {
   // save textarea's content to localstorage
   // YOUR CODE HERE
 
+  nameSpan.onblur = function() {
+    nameContent = nameSpan.textContent
+    document.cookie = 'username=' + nameContent + ";"
+  }
+
+
+
   // triggers thumbs up animation
   this.elements.save.classList.add('emoji')
 }
