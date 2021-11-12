@@ -15,6 +15,12 @@ if (usernameCookie) {
   nameSpan.textContent = usernameCookie.split('=')[1]
 }
 
+
+var notes = localStorage.getItem('notes')
+if (notes) {
+  textarea.value = notes
+}
+
 formEl.onsubmit = function(e) {
   // prevents form submission
   e.preventDefault()
